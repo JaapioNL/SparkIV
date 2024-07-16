@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RageLib", "RageLib", "{E2E43BBD-E2C5-47B4-AAF8-6F7E174EAB6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SparkIV", "SparkIV.csproj", "{0997A2C9-0562-4CBB-8560-5514D6163D97}"
@@ -18,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperText", "..\RageLib\HyperText\HyperText.csproj", "{2DCDBA6F-9941-45E5-94A4-082ACB9486FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio", "..\RageLib\Audio\Audio.csproj", "{0D5CDB87-198D-4CD3-A06F-76AC76B7C35D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F67C380-1857-42D8-85FD-D6487CA65E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaap", "..\Jaap\Jaap.csproj", "{BA243E68-7C5E-41BB-8B86-5167836DAB66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +87,14 @@ Global
 		{0D5CDB87-198D-4CD3-A06F-76AC76B7C35D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D5CDB87-198D-4CD3-A06F-76AC76B7C35D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D5CDB87-198D-4CD3-A06F-76AC76B7C35D}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA243E68-7C5E-41BB-8B86-5167836DAB66}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,5 +107,8 @@ Global
 		{545C8306-2D33-4498-BFD6-0B1A978F184D} = {E2E43BBD-E2C5-47B4-AAF8-6F7E174EAB6A}
 		{2DCDBA6F-9941-45E5-94A4-082ACB9486FC} = {E2E43BBD-E2C5-47B4-AAF8-6F7E174EAB6A}
 		{0D5CDB87-198D-4CD3-A06F-76AC76B7C35D} = {E2E43BBD-E2C5-47B4-AAF8-6F7E174EAB6A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E76E1AA7-A061-4572-A545-44439248DAFF}
 	EndGlobalSection
 EndGlobal
