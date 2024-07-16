@@ -107,7 +107,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Ookii.Dialogs">
-      <HintPath>..\..\..\..\Ookii.Dialogs.dll</HintPath>
+      <HintPath>..\Vendor\Ookii.Dialogs.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
