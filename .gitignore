@@ -41,3 +41,4 @@
 /.vs
 /SRC/SparkIV/packages
 /SRC/SparkIV/.vs/SparkIV/FileContentIndex
+*.suo

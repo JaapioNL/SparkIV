@@ -20,6 +20,7 @@
 
 using System;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
 using RageLib.Common.Compression;
 
 namespace RageLib.Common.Resources
@@ -57,8 +58,8 @@ namespace RageLib.Common.Resources
             set
             {
                 var data = value;
-                _header.SetMemSizes( data.Length, GraphicsMemSize );
-                
+                _header.SetMemSizes(data.Length, GraphicsMemSize);
+
                 _systemMemData = new byte[SystemMemSize];
                 data.CopyTo(_systemMemData, 0);
             }
@@ -88,20 +89,10 @@ namespace RageLib.Common.Resources
                 throw new Exception("Not a valid resource");
             }
 
-            switch (_header.CompressCodec)
-            {
-                case CompressionType.LZX:
-                    _codec = CompressionCodecFactory.LZX;
-                    break;
-                case CompressionType.Deflate:
-                    _codec = CompressionCodecFactory.Deflate;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            CreateCodec();
 
             var ms = new MemoryStream();
-            _codec.Decompress( data, ms );
+            _codec.Decompress(data, ms);
 
             ms.Seek(0, SeekOrigin.Begin);
 
@@ -114,16 +105,48 @@ namespace RageLib.Common.Resources
             ms.Close();
         }
 
+        public void Initialize(byte[] systemMemoryBytes, byte[] graphicsMemoryBytes, CompressionType compressionType, ResourceType resourceType)
+        {
+            _header = new ResourceHeader
+            {
+                Type = resourceType,
+                CompressCodec = compressionType,
+                Magic = ResourceHeader.MagicValue,
+                Flags = 3221225472,
+            };
+
+            CreateCodec();
+
+            this.SystemMemData = systemMemoryBytes;
+            this.GraphicsMemData = graphicsMemoryBytes;
+        }
+
+
+        private void CreateCodec()
+        {
+            switch (_header.CompressCodec)
+            {
+                case CompressionType.LZX:
+                    _codec = CompressionCodecFactory.LZX;
+                    break;
+                case CompressionType.Deflate:
+                    _codec = CompressionCodecFactory.Deflate;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
         public void Write(Stream data)
         {
             var bw = new BinaryWriter(data);
-            
+
             if (SystemMemSize != _systemMemData.Length || GraphicsMemSize != _graphicsMemData.Length)
             {
                 _header.SetMemSizes(SystemMemSize, GraphicsMemSize);
             }
 
-            _header.Write( bw );
+            _header.Write(bw);
 
             var ms = new MemoryStream();
             ms.Write(_systemMemData, 0, _systemMemData.Length);
@@ -135,7 +158,7 @@ namespace RageLib.Common.Resources
 
             var msCompress = new MemoryStream();
 
-            _codec.Compress( ms, msCompress );
+            _codec.Compress(ms, msCompress);
 
             bw.Write(msCompress.ToArray());
 
